@@ -1,0 +1,27 @@
+# Initial state-based curriculum configuration.
+# This file is declarative documentation until the Flightmare trainer is wired.
+experiment: state_racing_v0
+seed: 7
+control_dt: 0.02
+brain_dt: 0.01
+command_limits:
+  vx: 12.0
+  vy: 8.0
+  vz: 5.0
+  yaw_rate: 8.0
+curriculum:
+  - hover
+  - target_translation
+  - one_gate
+  - two_gates
+  - short_race
+  - randomized_tracks
+  - randomized_dynamics
+  - high_speed
+  - aggressive_corners
+reward:
+  progress: 1.0
+  gate_pass: 10.0
+  collision: -10.0
+  control_effort: 0.001
+  angular_rate: 0.0005
